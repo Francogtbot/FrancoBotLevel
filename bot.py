@@ -37,7 +37,7 @@ def tarea():
     precios = obtener_precio()
     bajos = [(d, p) for d, p in precios if p <= UMBRAL_USD]
     if bajos:
-        msg = f'✈️ Precios bajo USD {UMBRAL_USD}:'
+        msg = f'✈️ Precios bajo USD {UMBRAL_USD}:\n'
         for d, p in bajos:
             msg += f"- {d}: USD {p:.2f}\n"
         enviar_telegram(msg)
