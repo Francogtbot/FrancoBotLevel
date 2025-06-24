@@ -23,16 +23,17 @@ def obtener_precio():
     }
     resp = requests.get(url, params=params)
     if resp.status_code != 200:
-    print(f"Error en la petición: {resp.status_code}")
-    print(resp.text)
-    return []
+        print(f"Error en la petición: {resp.status_code}")
+        print(resp.text)
+        return []
 
     try:
-    data = resp.json()
+        data = resp.json()
     except ValueError as e:
-    print("Error al decodificar JSON:", e)
-    print(resp.text)
-    return []
+        print("Error al decodificar JSON:", e)
+        print(resp.text)
+        return []
+
     precios = []
     for item in data.get('Result', []):
         trip_price = float(item.get('Items', [''])[0].split(';')[2])
