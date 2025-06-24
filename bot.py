@@ -23,9 +23,9 @@ def obtener_precio():
     }
     resp = requests.get(url, params=params) 
 if resp.status_code != 200:
-    print(f"Error en la petición: {resp.status_code}")
-    print(resp.text)
-    return []
+        print(f"Error en la petición: {resp.status_code}")
+        print(resp.text)
+        return []
 
 try:
     data = resp.json()
